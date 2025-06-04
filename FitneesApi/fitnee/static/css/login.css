@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/working.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+}
+
+.card {
+    background: linear-gradient(rgba(121, 112, 112, 0.5), rgba(0, 0, 0, 0.5));
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        color: #ccc;
+        width:150%
+}
+
+.card .title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #00cc99;
+    box-shadow: 0 0 5px rgba(0, 204, 153, 0.6);
+}
+
+.button-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00cc99;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+    background-color: #009977;
+}
+
+
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link p {
+    color: #ccc;
+}
+
+.register-link a {
+    color: #00cc99;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

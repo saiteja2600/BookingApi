@@ -8,40 +8,74 @@
     {% block style %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
-    <link rel="shortcut icon" href="{%  static 'images/fitness.ico' %}" type="image/x-icon">
-
+    <link rel="shortcut icon" href="{% static 'images/fitness.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Fitnees Studio</title>
+    <title>Fitness Studio</title>
 </head>
 
 <body>
-    <header>
-        <nav class="main">
-            <div class="menu-tags" onclick="toggleMenu()">
+    <div class="wrapper">
 
-
-
-                <i class="fa-solid fa-align-justify"></i>
-
+        <header class="{% block header_class %}header{% endblock %}">
+            <nav class="main">
+                <div class="menu-tags" onclick="toggleMenu()">
+                    <i class="fa-solid fa-align-justify"></i>
+                </div>
+                <div>
+                    <ul class="menu" id="menu">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        
+                       
+                    </ul>
+                </div>
+                <div class="log-button">
+                    <button class="logbutton" type="button"><a href="{% url 'login' %}">Login</a></button>
+                </div>
+            </nav>
+    
+            {% block banner %}
+            <div class="center-screen">
+                <button class="center-button" type="button" onclick="scrollToContent()">Get Started</button>
             </div>
-            <ul class="menu" id="menu">
-                <li><a href=""> Home</a></li>
-                <li><a href=""> About</a></li>
-
-            </ul>
+            {% endblock %}
+        </header>
+        <div class="content">
+    
+            {% block content %}
+            {% endblock %}
             
-        </nav>
-    </header>
-    {% block content %}
-    {% endblock %}
+        </div>
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Fitness Studio. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
 </body>
 
 </html>
+
 <script>
     function toggleMenu() {
         const menu = document.querySelector('.menu');
         menu.classList.toggle('active');
+    }
+
+    function scrollToContent() {
+        const content = document.querySelector('.content');
+        if (content) {
+            content.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     }
 </script>

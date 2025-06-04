@@ -23,5 +23,10 @@ from fitnee import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.Home, name="home")
+    path("", views.Home, name="home"),
+    path("bookSlot/", views.bookSlot, name="bookSlot"),
+    path("login/", views.login, name="login"),
+    path("signup/", views.signup, name="signup"),
+    
+   
 ]

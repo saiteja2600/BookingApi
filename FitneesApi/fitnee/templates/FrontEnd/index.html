@@ -1,1 +1,98 @@
 {% extends 'FrontEnd/base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="container" id="'main-content">
+    <h3 class="prgram-activity">
+        Fitness That Fits Your Lifestyle
+    </h3>
+    <div class="col-md-4">
+
+        <div class="card">
+            <img src="{% static 'images/20239.jpg' %}" alt="" class="card-img">
+            <div class="card-body">
+                <h5 class="card-title">Yoga</h5>
+                <p class="content">
+                    Yoga helps make your body strong and flexible, helps you relax and feel calm, and keeps you healthy
+                    and happy.
+                </p>
+            </div>
+            <div class="card-footer">
+                <button class="card-button" type="button"> <a href="{% url 'bookSlot' %}">Book Slot</a> </button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/zumba.webp' %}" alt="" class="card-img">
+            <div class="card-body">
+                <h5 class="card-title">Zumba</h5>
+                <p class="content">
+                    Zumba is a fun dance workout that burns calories, improves fitness, and lifts your mood all at once.
+                </p>
+                
+    
+            </div>
+            <div class="card-footer">
+                <button class="card-button" type="button"> <a href="{% url 'bookSlot' %}">Book Slot</a> </button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/2149205532.jpg' %}" alt="" class="card-img">
+            <div class="card-body">
+                <h5 class="card-title">strength</h5>
+                <p class="content">
+                    Workout means doing exercises to get stronger, healthier, and stay fit.
+                </p>
+                
+            </div>
+            <div class="card-footer">
+                <button class="card-button" type="button"> <a href="{% url 'bookSlot' %}">Book Slot</a> </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+
+        <div class="card">
+            <img src="{% static 'images/1716.jpg' %}" alt="" class="card-img">
+            <div class="card-body">
+                <h5 class="card-title">Cardio</h5>
+                <p class="content">
+                    Cardio exercises like running and cycling make your heart and lungs stronger.
+                </p>
+                
+                
+            </div>
+            <div class="card-footer">
+                <button class="card-button" type="button"> <a href="{% url 'bookSlot' %}">Book Slot</a> </button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/13.jpg' %}" alt="" class="card-img">
+            <div class="card-body">
+                <h5 class="card-title">Hiit</h5>
+               
+                <p class="content">
+                    HIIT is a quick workout with intense bursts of exercise followed by rest.
+                </p>
+            </div>
+            <div class="card-footer">
+                <button class="card-button" type="button"> <a href="{% url 'bookSlot' %}">Book Slot</a> </button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/14788.jpg'%}" alt="" class="card-img">
+            <div class="card-body">
+                <h5 class="card-title">Pilates</h5>
+               
+                <p class="content">
+                    Pilates improves core strength, flexibility, and posture through controlled movements.
+                </p>
+                
+
+            </div>
+            <div class="card-footer">
+                <button class="card-button" type="button"> <a href="{% url 'bookSlot' %}">Book Slot</a> </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
