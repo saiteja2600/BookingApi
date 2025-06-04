@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'images/fitness.ico' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Fitness Studio</title>
+        <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    <section class="header">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="title">Create an Account</h2>
+                    <form method="post" action="{% url 'signup' %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password1" placeholder="Password" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password2" placeholder="Confirm Password" required>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit">Sign Up</button>
+                        </div>
+                    </form>
+                    <div class="login-link">
+                        <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </section>
+    
+</body>
+</html>

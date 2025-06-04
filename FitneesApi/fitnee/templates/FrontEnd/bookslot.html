@@ -1,0 +1,48 @@
+{% extends 'FrontEnd/base.html' %}
+{% load static %}
+
+{% block header_class %}no-banner{% endblock %}
+{% block banner %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="form-card">
+        <h4 class="form-title">Book Your Slot</h4>
+        <div class="form-body">
+            <form action="" class="form-book">
+                <div class="form-row">
+                    <div class="form-log">
+                        <label for="username" class="form-label">Name</label>
+                        <input type="text" name="username" placeholder="Enter Name">
+                    </div>
+                    <div class="form-log">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" placeholder="Enter Email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-log">
+                        <label for="slot_type" class="form-label">Slot Type</label>
+                        <select name="slot_type">
+                            <option value="" disabled selected>Select Type</option>
+                            <option value="consultation">Consultation</option>
+                            <option value="training">Training</option>
+                            <option value="follow_up">Follow-Up</option>
+                        </select>
+                    </div>
+                    <div class="form-log">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="date" name="date">
+                    </div>
+                    <div class="form-log">
+                        <label for="time" class="form-label">Time</label>
+                        <input type="time" name="time">
+                    </div>
+                </div>
+                <div class="form-log" style="text-align: center;">
+                    <button type="submit" class="card-button">Book Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
