@@ -129,3 +129,9 @@ STATICFILES_DIRS = [
     BASE_DIR / "fitnee/static"
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'saiteja3512@gmail.com'
+EMAIL_HOST_PASSWORD ='wanc tuhf rrop adwn'
+EMAIL_USE_TLS = True
