@@ -8,34 +8,45 @@
     <div class="form-card">
         <h4 class="form-title">Book Your Slot</h4>
         <div class="form-body">
-            <form action="" class="form-book">
+            <form action="" class="form-book" method="post">
+                {% csrf_token %}
                 <div class="form-row">
                     <div class="form-log">
                         <label for="username" class="form-label">Name</label>
-                        <input type="text" name="username" placeholder="Enter Name">
+                        <input type="text" name="client_name" placeholder="Enter Name"
+                            value="{{ form_data.client_name|default:'' }}">
                     </div>
+
                     <div class="form-log">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" placeholder="Enter Email">
+                        <input type="text" name="client_email" placeholder="Enter Email"
+                            value="{{ form_data.client_email|default:'' }}">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-log">
                         <label for="slot_type" class="form-label">Slot Type</label>
-                        <select name="slot_type">
-                            <option value="" disabled selected>Select Type</option>
-                            <option value="consultation">Consultation</option>
-                            <option value="training">Training</option>
-                            <option value="follow_up">Follow-Up</option>
+                        <input type="text" name="slottype" value="{{ slot_type }}" readonly>
+                    </div>
+                    <div class="form-log">
+                        <label for="trainee" class="trainee">Coach</label>
+                        <select name="trainee" id="trainee-select">
+                            <option value="" selected disabled>Select Coach</option>
+                            {% for trainee in trainees %}
+                            <option value="{{ trainee }}" {% if form_data.trainee == trainee %}selected{% endif %}>
+                                {{ trainee }}</option>
+                            {% endfor %}
                         </select>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="form-log">
-                        <label for="date" class="form-label">Date</label>
-                        <input type="date" name="date">
+                        <label for="date" class="form-label">Slot Date</label>
+                        <input type="date" name="date" id="slot-date" value="{{ form_data.date|default:'' }}">
                     </div>
                     <div class="form-log">
-                        <label for="time" class="form-label">Time</label>
-                        <input type="time" name="time">
+                        <label for="time" class="form-label">Slot Time</label>
+                        <input type="time" name="time" id="slot-time" value="{{ form_data.time|default:'' }}">
                     </div>
                 </div>
                 <div class="form-log" style="text-align: center;">
@@ -46,3 +57,8 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block script %} 
+
+
+{% endblock script %}

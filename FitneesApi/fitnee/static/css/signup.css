@@ -24,13 +24,14 @@
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    text-align: center;
+    
     color: #ccc;
 }
 
 .card .title {
     margin-bottom: 20px;
     font-size: 24px;
+    text-align: center;
     color: #fff;
 }
 
@@ -71,6 +72,7 @@
 .login-link {
     margin-top: 15px;
     font-size: 14px;
+    text-align: center;
 }
 
 .login-link p {
@@ -85,4 +87,50 @@
 
 .login-link a:hover {
     text-decoration: underline;
+}
+
+
+.error-msg {
+    color: rgb(196, 16, 16);
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+}
+
+
+.messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: white;
+    position: relative;
+    min-width: 250px;
+    opacity: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+    background-color: #4CAF50;
+}
+
+.alert-error {
+    background-color: #f44336;
+}
+
+.alert-info {
+    background-color: #2196F3;
+}
+
+.alert-warning {
+    background-color: #ff9800;
 }
