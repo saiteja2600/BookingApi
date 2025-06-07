@@ -161,5 +161,6 @@ The frontend is built using Django Templates and enhanced with CSS, JavaScript, 
 
 
 
-
+```Default localhost
+http://127.0.0.1:8000/''' 
 
