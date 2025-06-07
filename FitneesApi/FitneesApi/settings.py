@@ -86,7 +86,7 @@ WSGI_APPLICATION = "FitneesApi.wsgi.application"
 #     }
 # }
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')  # fallback just in case
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
