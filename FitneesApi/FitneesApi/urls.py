@@ -18,6 +18,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from fitnee import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 
 
@@ -37,3 +39,4 @@ urlpatterns = [
     
    
 ]
+urlpatterns += staticfiles_urlpatterns()
