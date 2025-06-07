@@ -78,8 +78,8 @@ def schedule(request):
     if 'user_email' not in request.session:
         return redirect('login')
 
-    user_email = request.session['user_email']
-    bookings = BookSlot.objects.filter(client_email=user_email)
+    user_id = request.session['user_id']
+    bookings = BookSlot.objects.filter(user_id=user_id)
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         events = [{
@@ -101,9 +101,10 @@ def bookSlot(request):
         return redirect('login')
 
     user_email = request.session['user_email']
+    user_id = request.session['user_id']
+
     try:
-        user = Register.objects.get(email=user_email)
-        client_name = user.username
+        user = Register.objects.get(id=user_id)
     except Register.DoesNotExist:
         messages.error(request, "User not found.")
         return redirect('login')
@@ -150,6 +151,7 @@ def bookSlot(request):
                     messages.error(request, "You have already booked this slot.")
                 else:
                     BookSlot.objects.create(
+                        user=user,
                         client_name=form_data['client_name'],
                         client_email=form_data['client_email'],
                         slottype=slottype,
@@ -194,13 +196,18 @@ def bookSlot(request):
         'form_data': form_data
     })
 
+
 def slot_delete(request, client_id):
-    if 'user_email' not in request.session:
+    user_id = request.session.get('user_id')
+    if not user_id:
+        messages.error(request, "User not logged in.")
         return redirect('login')
 
-    user_email = request.session['user_email']
-    slot = get_object_or_404(BookSlot, client_id=client_id, client_email=user_email)
-    
-    slot.delete()
-    messages.success(request, "Slot deleted successfully!")
+    try:
+        slot = BookSlot.objects.get(client_id=client_id, user_id=user_id)
+        slot.delete()
+        messages.success(request, "Slot deleted successfully!")
+    except BookSlot.DoesNotExist:
+        messages.error(request, "Slot not found or already deleted.")
+
     return redirect('schedule')
