@@ -14,6 +14,7 @@ class Register(models.Model):
 
 
 class BookSlot(models.Model):
+    user = models.ForeignKey('Register', on_delete=models.CASCADE, related_name='bookings')
     client_id = models.AutoField(primary_key=True)
     client_name = models.CharField(max_length=100)
     client_email = models.EmailField()
